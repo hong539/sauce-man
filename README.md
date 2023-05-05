@@ -11,4 +11,5 @@ pipenv --python 3.8.16
 pipenv shell
 
 pipenv install discord.py
+pipenv install PyYAML
 ```

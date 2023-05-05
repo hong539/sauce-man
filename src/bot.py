@@ -1,6 +1,15 @@
+import yaml
 import discord
 from discord.ext import commands
 from PIL import Image
+
+def load_config(path):
+    with open(path, "r") as config:
+        data = yaml.safe_load(config)
+        print(type(data))
+        print(data["bot"]["token"])
+    
+    return data
 
 # 建立Discord BOT客戶端
 bot = commands.Bot(command_prefix='!')
@@ -44,3 +53,6 @@ def image_recognition(image_path):
 
 # BOT啟動
 bot.run('YOUR_DISCORD_BOT_TOKEN')
+
+if __name__ == "__main__":
+    bot.run('YOUR_DISCORD_BOT_TOKEN')
