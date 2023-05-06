@@ -4,10 +4,18 @@ from discord.ext import commands
 from PIL import Image
 
 def load_config(path):
+    """Load configuration data from a YAML file.
+
+    Args:
+        path (str): The path to the YAML configuration file.
+
+    Returns:
+        dict: The configuration data.
+    """    
     with open(path, "r") as config:
         data = yaml.safe_load(config)
-        print(type(data))
-        print(data["bot"]["token"])
+        print("data type is:",type(data))
+        print("bot token is:\n", data["bot"]["token"])
     
     return data
 
@@ -51,8 +59,9 @@ def image_recognition(image_path):
     # 返回圖片辨識結果
     return '辨識結果'
 
-# BOT啟動
-bot.run('YOUR_DISCORD_BOT_TOKEN')
+# # BOT啟動
+# bot.run('YOUR_DISCORD_BOT_TOKEN')
 
 if __name__ == "__main__":
-    bot.run('YOUR_DISCORD_BOT_TOKEN')
+    data = load_config("../my_self.yaml")
+    # bot.run('YOUR_DISCORD_BOT_TOKEN')
