@@ -37,6 +37,9 @@ class MyClient(discord.Client):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')
 
+    async def on_message(self, message):
+        print(f'Message from {message.author}: {message.content}')
+    
     # async def setup_hook(self) -> None:
     #     # Sync the application command with Discord.
     #     await self.tree.sync(guild=TEST_GUILD)
@@ -77,7 +80,7 @@ class MyClient(discord.Client):
 #         traceback.print_exception(type(error), error, error.__traceback__)
 
 
-client = MyClient()
+# client = MyClient()
 
 
 # @client.tree.command(guild=TEST_GUILD, description="Submit feedback")
@@ -88,4 +91,8 @@ client = MyClient()
 #     await interaction.response.send_modal(Feedback())
 
 
-client.run(token= client.load_config("./my_self.yaml")["bot"]["token"])
+# client.run(token= client.load_config("./my_self.yaml")["bot"]["token"])
+
+if __name__ == "__main__":
+    client = MyClient()
+    client.run(token= client.load_config("./my_self.yaml")["bot"]["token"])
