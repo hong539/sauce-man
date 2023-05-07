@@ -29,7 +29,7 @@ class MyClient(discord.Client):
             self.config_data = yaml.safe_load(config)
             print("config_data type is:", type(self.config_data))
             print("bot token is:\n", self.config_data["bot"]["token"])
-        return self.config_data            
+        return self.config_data
     
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -86,4 +86,4 @@ async def feedback(interaction: discord.Interaction):
     await interaction.response.send_modal(Feedback())
 
 
-client.run(token= client.config_data["bot"]["token"])
+client.run(token= client.load_config("./my_self.yaml")["bot"]["token"])
