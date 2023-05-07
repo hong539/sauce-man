@@ -7,22 +7,6 @@ import traceback
 # It is recommended to have a test guild to separate from your "production" bot
 TEST_GUILD = discord.Object(0)
 
-def load_config(path):
-    """Load configuration data from a YAML file.
-
-    Args:
-        path (str): The path to the YAML configuration file.
-
-    Returns:
-        dict: The configuration data.
-    """    
-    with open(path, "r") as config:
-        data = yaml.safe_load(config)
-        print("data type is:",type(data))
-        print("bot token is:\n", data["bot"]["token"])
-    
-    return data
-
 class MyClient(discord.Client):
     def __init__(self) -> None:
         # Just default intents and a `discord.Client` instance
@@ -35,6 +19,17 @@ class MyClient(discord.Client):
         # to register application commands (slash commands in this case)
         self.tree = app_commands.CommandTree(self)
 
+    def load_config(self, path):
+        """Load configuration data from a YAML file.
+
+        Args:
+            path (str): The path to the YAML configuration file.
+        """
+        with open(path, "r") as config:
+            config_data = yaml.safe_load(config)
+            print("config_data type is:", type(config_data))
+            print("bot token is:\n", config_data["bot"]["token"])
+    
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')
