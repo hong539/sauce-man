@@ -38,7 +38,7 @@ class MyClient(discord.Client):
         print('------')
 
     async def on_message(self, message):
-        print(f'Message from {message.author}: {message.content}')
+        print(f'Message from {message.channel}:{message.author}: {message.content}')
     
     # async def setup_hook(self) -> None:
     #     # Sync the application command with Discord.
