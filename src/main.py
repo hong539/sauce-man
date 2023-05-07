@@ -26,9 +26,10 @@ class MyClient(discord.Client):
             path (str): The path to the YAML configuration file.
         """
         with open(path, "r") as config:
-            config_data = yaml.safe_load(config)
-            print("config_data type is:", type(config_data))
-            print("bot token is:\n", config_data["bot"]["token"])
+            self.config_data = yaml.safe_load(config)
+            print("config_data type is:", type(self.config_data))
+            print("bot token is:\n", self.config_data["bot"]["token"])
+        return self.config_data            
     
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -85,4 +86,4 @@ async def feedback(interaction: discord.Interaction):
     await interaction.response.send_modal(Feedback())
 
 
-client.run('token')
+client.run(token= client.config_data["bot"]["token"])
