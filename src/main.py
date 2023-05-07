@@ -1,12 +1,27 @@
 import discord
 from discord import app_commands
-
+import yaml
 import traceback
 
 # The guild in which this slash command will be registered.
 # It is recommended to have a test guild to separate from your "production" bot
 TEST_GUILD = discord.Object(0)
 
+def load_config(path):
+    """Load configuration data from a YAML file.
+
+    Args:
+        path (str): The path to the YAML configuration file.
+
+    Returns:
+        dict: The configuration data.
+    """    
+    with open(path, "r") as config:
+        data = yaml.safe_load(config)
+        print("data type is:",type(data))
+        print("bot token is:\n", data["bot"]["token"])
+    
+    return data
 
 class MyClient(discord.Client):
     def __init__(self) -> None:
