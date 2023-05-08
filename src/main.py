@@ -39,6 +39,11 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
         print(f'Message from {message.channel}:{message.author}: {message.content}')
+        
+        if message.author == client.user:
+            return
+        if message.content.startswith('$hello'):
+            await message.channel.send('Hello!')
     
     # async def setup_hook(self) -> None:
     #     # Sync the application command with Discord.
