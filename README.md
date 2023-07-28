@@ -1,5 +1,5 @@
 # sauce_man
-sauce_man is a discord bot to analysis your images in discord channel
+sauce_man is a discord bot to wrapper the search feature for who want make some records.
 
 ## dev
 
