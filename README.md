@@ -1,7 +1,8 @@
 # sauce_man
+
 sauce_man is a discord bot to wrapper the search feature for who want make some records.
 
-## dev
+## quick-start
 
 ```shell
 #setting up python version
@@ -18,8 +19,10 @@ pipenv install discord.py
 pipenv install PyYAML
 ```
 
-## packages/tips/docs
+## misc
 
+* [Discord bot that automatically download images from a channel.](https://www.reddit.com/r/Discord_Bots/comments/pdz8kp/discord_bot_that_automatically_download_images/)
+    * [d-logger.py](https://github.com/therealOri/d-logger/blob/main/d-logger.py)
 * [discord.py/intro](https://discordpy.readthedocs.io/en/latest/intro.html)
 * [events](https://discordpy.readthedocs.io/en/latest/api.html#event-reference)
     * [coroutine](https://docs.python.org/3/library/asyncio-task.html#coroutine)
