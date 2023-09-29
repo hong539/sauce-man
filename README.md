@@ -5,7 +5,7 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 ## To-do-list
 
 * test discord.py
-* load and save history messages from channel
+* search/load/save history messages from a specific channel
 
 ## quick-start
 
@@ -26,6 +26,8 @@ pipenv install PyYAML
 
 ## misc
 
+* [Community Resources](https://discord.com/developers/docs/topics/community-resources#community-resources)
+* [discord.com/developers/docs/getting-started](https://discord.com/developers/docs/getting-started)
 * [Discord bot that automatically download images from a channel.](https://www.reddit.com/r/Discord_Bots/comments/pdz8kp/discord_bot_that_automatically_download_images/)
     * [d-logger.py](https://github.com/therealOri/d-logger/blob/main/d-logger.py)
 * [discord.py/intro](https://discordpy.readthedocs.io/en/latest/intro.html)
