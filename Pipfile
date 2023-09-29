@@ -6,10 +6,9 @@ name = "pypi"
 [packages]
 "discord.py" = "*"
 pyyaml = "*"
-pillow = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
-python_full_version = "3.8.16"
+python_version = "3.11"
+python_full_version = "3.11.4"

@@ -2,14 +2,19 @@
 
 sauce_man is a discord bot to wrapper the search feature for who want make some records.
 
+## To-do-list
+
+* test discord.py
+* load and save history messages from channel
+
 ## quick-start
 
 ```shell
 #setting up python version
-pyenv local 3.8.16
+pyenv local 3.11.4
 
 #Specify which version of Python virtualenv should use.
-pipenv --python 3.8.16
+pipenv --python 3.11.4
 
 #Spawns a shell within the virtualenv.
 pipenv shell
