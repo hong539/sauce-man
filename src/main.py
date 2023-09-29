@@ -25,7 +25,13 @@ class MyClient(discord.Client):
             self.config_data = yaml.safe_load(config)
             print("config_data type is:", type(self.config_data))
             print("bot token is:\n", self.config_data["bot"]["token"])
+            print("discord guild ID is:\n", self.config_data["bot"]["guild_id"])
         return self.config_data
+
+    async def setup_hook(self):
+        # This copies the global commands over to your guild.
+        self.tree.copy_global_to(guild=MY_GUILD)
+        await self.tree.sync(guild=MY_GUILD)
     
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')

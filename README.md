@@ -5,6 +5,7 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 ## To-do-list
 
 * test discord.py
+* separate function load_config from class or not?
 * search/load/save history messages from a specific channel
 
 ## quick-start
