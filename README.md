@@ -5,8 +5,10 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 ## To-do-list
 
 * test discord.py
-* separate function load_config from class or not?
-* search/load/save history messages from a specific channel
+* ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
+* make app_commands
+    * search history messages from a specific channel    
+    * save history messages from a specific channel
 
 ## quick-start
 
@@ -23,10 +25,20 @@ pipenv shell
 #packages
 pipenv install discord.py
 pipenv install PyYAML
+
+#run this bot
+cd src/
+python3 main.py
 ```
 
 ## misc
 
+* [await fetch_message](https://discordpy.readthedocs.io/en/latest/api.html#discord.TextChannel.fetch_message)
+* [read_message_history](https://discordpy.readthedocs.io/en/latest/api.html?highlight=history#discord.Permissions.read_message_history)
+* [async for ... in history](https://discordpy.readthedocs.io/en/latest/api.html?highlight=history#discord.User.history)
+* [discord.py/examples/](https://github.com/Rapptz/discord.py/tree/master/examples)
+* [How to retrieve previous messages with discord.py](https://stackoverflow.com/questions/64995479/how-to-retrieve-previous-messages-with-discord-py)
+* [How could I grab all chat messages in a specific channel in a discord server using discord.py?](https://stackoverflow.com/questions/64211658/how-could-i-grab-all-chat-messages-in-a-specific-channel-in-a-discord-server-usi)
 * [Community Resources](https://discord.com/developers/docs/topics/community-resources#community-resources)
 * [discord.com/developers/docs/getting-started](https://discord.com/developers/docs/getting-started)
 * [Discord bot that automatically download images from a channel.](https://www.reddit.com/r/Discord_Bots/comments/pdz8kp/discord_bot_that_automatically_download_images/)
