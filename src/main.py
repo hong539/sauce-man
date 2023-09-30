@@ -20,18 +20,28 @@ def load_config(path: str) -> dict:
 
 
 class MyClient(discord.Client):
-        
-    def __init__(self) -> None:
+    
+    def __init__(self, path: str) -> None:
         # Just default intents and a `discord.Client` instance
         # We don't need a `commands.Bot` instance because we are not
         # creating text-based commands.
         intents = discord.Intents.default()
         intents.message_content = True
         super().__init__(intents=intents)
-
+        self.config_data = load_config(path)
+        self.token = self.config_data["bot"]["token"]
         # We need an `discord.app_commands.CommandTree` instance
         # to register application commands (slash commands in this case)
-        self.tree = app_commands.CommandTree(self)        
+        self.tree = app_commands.CommandTree(self)
+        self.guild = discord.Object(id=int(self.config_data["bot"]["guild_id"]))  # replace with your guild id
+
+    # In this basic example, we just synchronize the app commands to one guild.
+    # Instead of specifying a guild to every command, we copy over our global commands instead.
+    # By doing so, we don't have to wait up to an hour until they are shown to the end-user.
+    async def setup_hook(self):
+        # This copies the global commands over to your guild.
+        self.tree.copy_global_to(guild=self.guild)
+        await self.tree.sync(guild=self.guild)
     
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -43,9 +53,8 @@ class MyClient(discord.Client):
 def main():
     
     BASE_DIR = Path(__file__).resolve().parent
-    config_path = os.path.join(BASE_DIR, 'my_self.yaml')
-    temp = load_config(config_path)    
-    client = MyClient()
+    config_path = os.path.join(BASE_DIR, 'my_self.yaml')    
+    client = MyClient(config_path)
     
     @client.tree.command()
     async def hello(interaction: discord.Interaction):
@@ -120,8 +129,19 @@ def main():
 
         await log_channel.send(embed=embed, view=url_view)
 
+    @client.tree.command()
+    @app_commands.describe(member='The member you want to search',
+                           channel='The channel you want to search'
+                          )
+    async def search_oldest_message(interaction: discord.Interaction, member: Optional[discord.Member] = None, channel: Optional[discord.TextChannel] = None):
+        """Search an oldest message from a channel with a member."""
+        member = member or interaction.user
+        async for messages in channel.history(limit=1, oldest_first=True):
+            content = messages.content
+            jump_url = messages.jump_url
+        await interaction.response.send_message(f'member: {member} in channel: {channel}: send an oldest message: {content} at jump_url: {jump_url}')
     
-    client.run(token= temp["bot"]["token"])    
+    client.run(token= client.token)
 
 if __name__ == "__main__":
     main()
