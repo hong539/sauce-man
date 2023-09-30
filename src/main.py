@@ -168,8 +168,8 @@ def main():
 
         # print(contents)
         df['message'] = contents
-        print("--------------------------------------------")
-        print(df)
+        print("-----------working---------------------------------")
+        # print(df)
         df.to_sql(name=channel.name, con=engine, if_exists='append', index=False)
         await interaction.response.send_message(f'From {after_date} to {before_date} and total message counter: {counter}')
     
