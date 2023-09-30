@@ -1,4 +1,5 @@
 import os
+import datetime
 from pathlib import Path
 from typing import Optional
 import discord
@@ -147,10 +148,13 @@ def main():
                           )
     async def dump_oldest_message(interaction: discord.Interaction, member: Optional[discord.Member] = None, channel: Optional[discord.TextChannel] = None):
         """Dump messages from a channel with a member from oldest to current."""
+        before_date = datetime.datetime(2021, 7, 31, tzinfo=datetime.timezone.utc)
+        after_date = datetime.datetime(2021, 6, 25, tzinfo=datetime.timezone.utc)
+        
         member = member or interaction.user
         counter = 0
         contents = []
-        async for message in channel.history(limit=100, oldest_first=True):            
+        async for message in channel.history(limit=None, before=before_date, after=after_date, oldest_first=True):
             counter += 1
             contents.append(message.content)
 

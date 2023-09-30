@@ -39,6 +39,8 @@ pipenv requirements > requirements.txt
 
 ## misc
 
+* [sqlalchemy/postgresql](https://docs.sqlalchemy.org/en/20/dialects/postgresql.html)
+* [pandas](https://pandas.pydata.org/)
 * [decorator](https://docs.python.org/3/glossary.html#term-decorator)
 * [await fetch_message](https://discordpy.readthedocs.io/en/latest/api.html#discord.TextChannel.fetch_message)
 * [read_message_history](https://discordpy.readthedocs.io/en/latest/api.html?highlight=history#discord.Permissions.read_message_history)
