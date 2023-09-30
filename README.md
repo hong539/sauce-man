@@ -30,6 +30,9 @@ pipenv install PyYAML
 #run this bot
 cd src/
 python3 main.py
+
+#freeze requirements.txt
+pipenv requirements > requirements.txt
 ```
 
 ## misc
