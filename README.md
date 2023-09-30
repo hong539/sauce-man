@@ -26,6 +26,8 @@ pipenv shell
 #packages
 pipenv install discord.py
 pipenv install PyYAML
+pipenv install pandas
+pipenv install SQLAlchemy
 
 #run this bot
 cd src/

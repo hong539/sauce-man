@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 "discord.py" = "*"
 pyyaml = "*"
+pandas = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 
