@@ -10,6 +10,7 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
     * ~~search history messages from a specific channel~~
     * dump history messages from a specific channel
         * calculate the range <= 100 for iterator to append all history to the stored list
+* ~~postgresql db init~~
 
 ## quick-start
 
