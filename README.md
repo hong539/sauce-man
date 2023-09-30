@@ -7,8 +7,9 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 * test discord.py
 * ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
 * make app_commands
-    * search history messages from a specific channel    
-    * save history messages from a specific channel
+    * ~~search history messages from a specific channel~~
+    * dump history messages from a specific channel
+        * calculate the range <= 100 for iterator to append all history to the stored list
 
 ## quick-start
 

@@ -140,6 +140,22 @@ def main():
             content = messages.content
             jump_url = messages.jump_url
         await interaction.response.send_message(f'member: {member} in channel: {channel}: send an oldest message: {content} at jump_url: {jump_url}')
+
+    @client.tree.command()
+    @app_commands.describe(member='The member you want to dump',
+                           channel='The channel you want to dump'
+                          )
+    async def dump_oldest_message(interaction: discord.Interaction, member: Optional[discord.Member] = None, channel: Optional[discord.TextChannel] = None):
+        """Dump messages from a channel with a member from oldest to current."""
+        member = member or interaction.user
+        counter = 0
+        contents = []
+        async for message in channel.history(limit=100, oldest_first=True):            
+            counter += 1
+            contents.append(message.content)
+
+        print(contents)
+        await interaction.response.send_message(f'Now counter: {counter}')
     
     client.run(token= client.token)
 
