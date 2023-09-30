@@ -5,6 +5,8 @@ from typing import Optional
 import discord
 from discord import app_commands
 import yaml
+import pandas as pd
+from sqlalchemy import create_engine
 
 def load_config(path: str) -> dict:
     """Load configuration data from a YAML file.
@@ -144,13 +146,19 @@ def main():
 
     @client.tree.command()
     @app_commands.describe(member='The member you want to dump',
-                           channel='The channel you want to dump'
+                           channel='The channel you want to dump',
+                           before_date='The date: YYYY-MM-DD you want to dump before',
+                           after_date='The date: YYYY-MM-DD you want to dump after'
                           )
-    async def dump_oldest_message(interaction: discord.Interaction, member: Optional[discord.Member] = None, channel: Optional[discord.TextChannel] = None):
+    async def dump_oldest_message(interaction: discord.Interaction, member: Optional[discord.Member] = None, channel: Optional[discord.TextChannel] = None, before_date: Optional[str] = None, after_date: Optional[str] = None):
         """Dump messages from a channel with a member from oldest to current."""
-        before_date = datetime.datetime(2021, 7, 31, tzinfo=datetime.timezone.utc)
-        after_date = datetime.datetime(2021, 6, 25, tzinfo=datetime.timezone.utc)
-        
+        config_data = load_config(config_path)
+        engine = create_engine(config_data["database_info"]["connect_str"])
+        df = pd.DataFrame(columns=['message'])
+        # before_date = datetime.datetime(2021, 7, 31, tzinfo=datetime.timezone.utc)
+        # after_date = datetime.datetime(2021, 6, 25, tzinfo=datetime.timezone.utc)
+        before_date = datetime.datetime.fromisoformat(before_date) if before_date else None
+        after_date = datetime.datetime.fromisoformat(after_date) if after_date else None        
         member = member or interaction.user
         counter = 0
         contents = []
@@ -158,8 +166,12 @@ def main():
             counter += 1
             contents.append(message.content)
 
-        print(contents)
-        await interaction.response.send_message(f'Now counter: {counter}')
+        # print(contents)
+        df['message'] = contents
+        print("--------------------------------------------")
+        print(df)
+        df.to_sql(name=channel.name, con=engine, if_exists='append', index=False)
+        await interaction.response.send_message(f'From {after_date} to {before_date} and total message counter: {counter}')
     
     client.run(token= client.token)
 

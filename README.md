@@ -29,6 +29,7 @@ pipenv install discord.py
 pipenv install PyYAML
 pipenv install pandas
 pipenv install SQLAlchemy
+pipenv install psycopg2
 
 #run this bot
 cd src/
