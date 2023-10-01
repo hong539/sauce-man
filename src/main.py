@@ -16,9 +16,10 @@ def load_config(path: str) -> dict:
     """
     with open(path, "r") as config:
         config_data = yaml.safe_load(config)
-        print("config_data type is:", type(config_data))
-        print("bot token is:\n", config_data["bot"]["token"])
-        print("discord guild ID is:\n", config_data["bot"]["guild_id"])
+        print("config_data loading OK!")
+        # print("config_data type is:", type(config_data))
+        # print("bot token is:\n", config_data["bot"]["token"])
+        # print("discord guild ID is:\n", config_data["bot"]["guild_id"])
     return config_data
 
 
@@ -171,7 +172,7 @@ def main():
         print("-----------working---------------------------------")
         # print(df)
         df.to_sql(name=channel.name, con=engine, if_exists='append', index=False)
-        await interaction.response.send_message(f'From {after_date} to {before_date} and total message counter: {counter}')
+        await interaction.response.send_message(f'Dump messages from {member.nick} in {channel.name}: \n From {after_date} to {before_date} and total message counter: {counter}')
     
     client.run(token= client.token)
 
