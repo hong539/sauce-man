@@ -41,6 +41,9 @@ pipenv requirements > requirements.txt
 
 ## misc
 
+* [how-do-i-apply-environment-variables-to-python-interactive](https://stackoverflow.com/questions/73858371/how-do-i-apply-environment-variables-to-python-interactive)
+* [pprint](https://docs.python.org/3.11/library/pprint.html)
+* [os.environ](https://docs.python.org/3/library/os.html#os.environ)
 * [sqlalchemy/postgresql](https://docs.sqlalchemy.org/en/20/dialects/postgresql.html)
 * [pandas](https://pandas.pydata.org/)
 * [decorator](https://docs.python.org/3/glossary.html#term-decorator)
