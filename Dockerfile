@@ -8,7 +8,7 @@ WORKDIR /app
 #set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_DEBUG True
+ENV token PUT_your_discord_app_token
 ENV DB_USER test
 ENV DB_HOST host
 ENV DB_PASSWORD passwd

@@ -1,2 +1,11 @@
 bot:
-  token: put_your_token_here
+  token: PUT_your_discord_app_token
+  url: discord_api_for_invite
+  guild_id: 123456789098765432
+database_info:
+  connect_str: "postgresql+psycopg2://user:passwd@host:port/database"
+  user: "user"
+  password: "passwd"
+  host: "host"
+  port: "5432"
+  database_name: "sauce_man"
