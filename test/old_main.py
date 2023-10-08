@@ -4,24 +4,40 @@ from pathlib import Path
 from typing import Optional
 import discord
 from discord import app_commands
+import yaml
 import pandas as pd
 from sqlalchemy import create_engine
 
+def load_config(path: str) -> dict:
+    """Load configuration data from a YAML file.
+
+    Args:
+        path (str): The path to the YAML configuration file.
+    """
+    with open(path, "r") as config:
+        config_data = yaml.safe_load(config)
+        print("config_data loading OK!")
+        # print("config_data type is:", type(config_data))
+        # print("bot token is:\n", config_data["bot"]["token"])
+        # print("discord guild ID is:\n", config_data["bot"]["guild_id"])
+    return config_data
+
+
 class MyClient(discord.Client):
     
-    def __init__(self) -> None:
+    def __init__(self, path: str) -> None:
         # Just default intents and a `discord.Client` instance
         # We don't need a `commands.Bot` instance because we are not
         # creating text-based commands.
         intents = discord.Intents.default()
         intents.message_content = True
-        super().__init__(intents=intents)        
-        self.token = os.environ['TOKEN']
-        self.guild_id = os.environ['GUILD_ID']        
+        super().__init__(intents=intents)
+        self.config_data = load_config(path)
+        self.token = self.config_data["bot"]["token"]
         # We need an `discord.app_commands.CommandTree` instance
         # to register application commands (slash commands in this case)
         self.tree = app_commands.CommandTree(self)
-        self.guild = discord.Object(id=int(self.guild_id))  # replace with your guild id
+        self.guild = discord.Object(id=int(self.config_data["bot"]["guild_id"]))  # replace with your guild id
 
     # In this basic example, we just synchronize the app commands to one guild.
     # Instead of specifying a guild to every command, we copy over our global commands instead.
@@ -39,8 +55,11 @@ class MyClient(discord.Client):
         print(f'Message from {message.channel}:{message.author}: {message.content}')
 
 def main():
-
-    client = MyClient()    
+    
+    BASE_DIR = Path(__file__).resolve().parent
+    config_path = os.path.join(BASE_DIR, 'my_self.yaml')    
+    client = MyClient(config_path)
+    
     @client.tree.command()
     async def hello(interaction: discord.Interaction):
         """Says hello!"""
@@ -134,13 +153,8 @@ def main():
                           )
     async def dump_oldest_message(interaction: discord.Interaction, member: Optional[discord.Member] = None, channel: Optional[discord.TextChannel] = None, before_date: Optional[str] = None, after_date: Optional[str] = None):
         """Dump messages from a channel with a member from oldest to current."""
-        db_user = os.environ['DB_USER']
-        db_host = os.environ['DB_HOST']
-        db_password = os.environ['DB_PASSWORD']
-        db_port = os.environ['DB_PORT']
-        db_name = os.environ['DB_NAME']
-        db_connect_info = f"postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
-        engine = create_engine(db_connect_info)
+        config_data = load_config(config_path)
+        engine = create_engine(config_data["database_info"]["connect_str"])
         df = pd.DataFrame(columns=['message'])
         # before_date = datetime.datetime(2021, 7, 31, tzinfo=datetime.timezone.utc)
         # after_date = datetime.datetime(2021, 6, 25, tzinfo=datetime.timezone.utc)
