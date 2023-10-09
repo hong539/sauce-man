@@ -11,6 +11,9 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
     * dump history messages from a specific channel
         * calculate the range <= 100 for iterator to append all history to the stored list
 * ~~postgresql db init~~
+* Container part
+    * ~~prepare Dockerfile~~
+    * ~~Run with podman~~
 
 ## quick-start
 
@@ -37,6 +40,15 @@ python3 main.py
 
 #freeze requirements.txt
 pipenv requirements > requirements.txt
+
+#podman container build/run
+podman build . -t docker.io/focal1119/sauce_man:test
+podman build . --no-cache -t docker.io/focal1119/sauce_man:test
+podman run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
+
+#docker container build/run
+docker build . -t docker.io/focal1119/sauce_man:test
+docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
 ```
 
 ## misc

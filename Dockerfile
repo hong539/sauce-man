@@ -16,11 +16,10 @@ ENV DB_PASSWORD passwd
 ENV DB_PORT port
 ENV DB_NAME test_db
 
-#COPY Django files needed
+#Setup sauce_man
 COPY requirements.txt /app
 COPY /src /app
-
 RUN pip install -r requirements.txt
 
-# EXPOSE 8000
+#Run sauce_man
 CMD ["python3", "main.py"]
