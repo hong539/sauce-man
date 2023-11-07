@@ -4,6 +4,8 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 
 ## To-do-list
 
+* podman container crashed
+    * socket.gaierror: [Errno -2] Name or service not known
 * test discord.py
 * ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
 * make app_commands
