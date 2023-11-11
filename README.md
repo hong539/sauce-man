@@ -16,6 +16,8 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 * Container part
     * ~~prepare Dockerfile~~
     * ~~Run with podman~~
+    * docekr network DNS resovle error
+        * ERROR: failed to solve: docker.io/python:3.11.4-slim-bullseye: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.11.4-slim-bullseye": EOF
 
 ## quick-start
 
