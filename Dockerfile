@@ -1,6 +1,6 @@
 #1st stage
 #pull official base image
-FROM docker.io/python:3.11.9-slim-bookworm
+FROM docker.io/python:3.10.14-slim-bookworm
 
 #set the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions
 WORKDIR /app

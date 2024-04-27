@@ -60,6 +60,13 @@ pipenv requirements > requirements.txt
 docker build . -t docker.io/focal1119/sauce_man:test
 docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
 
+#docker compose
+#up and run in background
+docker compose up -d
+
+#down
+docker compose down
+
 #podman container build/run
 podman build . -t docker.io/focal1119/sauce_man:test
 podman build . --no-cache -t docker.io/focal1119/sauce_man:test

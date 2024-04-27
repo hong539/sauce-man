@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+    sauce_man:
+        hostname: sauce_man
+        container_name: sauce_man
+        image: docker.io/focal1119/sauce_man:test
+        restart: always
+        # entrypoint: tail -f /dev/null
+        env_file:
+            - .env
+        # network_mode: "host"
