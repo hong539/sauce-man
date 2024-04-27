@@ -1,23 +1,34 @@
 # sauce_man
 
-sauce_man is a discord bot to wrapper the search feature for who want make some records.
+sauce_man is a discord bot to wrapper the search feature for who want make some records or fix the broken preview from some outside URLs.
 
 ## To-do-list
 
-* podman container crashed
-    * socket.gaierror: [Errno -2] Name or service not known
+### working
+
+* update Dockerfile
+* migrage from pyenv+pipenv to pyenv+poetry
 * test discord.py
-* ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
+* find a better and safe way to set env
 * make app_commands
     * ~~search history messages from a specific channel~~
     * dump history messages from a specific channel
         * calculate the range <= 100 for iterator to append all history to the stored list
-* ~~postgresql db init~~
+
+### pending
+
+* podman container crashed
+    * socket.gaierror: [Errno -2] Name or service not known
 * Container part
     * ~~prepare Dockerfile~~
     * ~~Run with podman~~
     * docekr network DNS resovle error
         * ERROR: failed to solve: docker.io/python:3.11.4-slim-bullseye: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.11.4-slim-bullseye": EOF
+
+### done
+
+* ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
+* ~~postgresql db init~~
 
 ## quick-start
 
@@ -45,14 +56,14 @@ python3 main.py
 #freeze requirements.txt
 pipenv requirements > requirements.txt
 
+#docker container build/run
+docker build . -t docker.io/focal1119/sauce_man:test
+docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
+
 #podman container build/run
 podman build . -t docker.io/focal1119/sauce_man:test
 podman build . --no-cache -t docker.io/focal1119/sauce_man:test
 podman run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
-
-#docker container build/run
-docker build . -t docker.io/focal1119/sauce_man:test
-docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
 ```
 
 ## misc
