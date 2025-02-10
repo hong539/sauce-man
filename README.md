@@ -1,24 +1,33 @@
 # sauce_man
 
-sauce_man is a discord bot to wrapper the search feature for who want make some records or fix the broken preview from some outside URLs.
+* sauce_man is a discord bot to make discord app bertter to:
+    * advanced search features for who want make some records or fix the broken preview from some outside URLs.
+    * Fix Links Previews.
 
 ## To-do-list
 
 ### working
 
 * update Dockerfile
-* migrage from pyenv+pipenv to pyenv+poetry
+* ~~migrage from pyenv+poetry to uv~~
 * test discord.py
 * find a better and safe way to set env
-* make app_commands
+* implement event handling
+    * Discord Twitter Link Handler
+        ✅ Detect Twitter links in messages
+        ✅ Extract Tweet ID from the URL
+        ✅ Fetch tweet data using fxtwitter API (fallback to vxtwitter API)
+        ✅ Generate a Discord Embed containing tweet details
+        ✅ Send tweet media (images/videos) separately
+        ✅ Provide a backup link if API calls fail
+        ✅ Suppress Discord’s default Twitter preview    
+* implement channel app commands
     * ~~search history messages from a specific channel~~
     * dump history messages from a specific channel
         * calculate the range <= 100 for iterator to append all history to the stored list
 
 ### pending
 
-* podman container crashed
-    * socket.gaierror: [Errno -2] Name or service not known
 * Container part
     * ~~prepare Dockerfile~~
     * ~~Run with podman~~
@@ -33,34 +42,16 @@ sauce_man is a discord bot to wrapper the search feature for who want make some 
 ## quick-start
 
 ```shell
-#setting up python version
-pyenv local 3.11.4
+#setting up 
+bash scripts/uv_tools.sh
 
-#Specify which version of Python virtualenv should use.
-pipenv --python 3.11.4
-
-#Spawns a shell within the virtualenv.
-pipenv shell
-
-#packages
-pipenv install discord.py
-pipenv install PyYAML
-pipenv install pandas
-pipenv install SQLAlchemy
-pipenv install psycopg2
-
-#run this bot
-cd src/
-python3 main.py
-
-#freeze requirements.txt
-pipenv requirements > requirements.txt
-
-#docker container build/run
+#build docker container image
 docker build . -t docker.io/focal1119/sauce_man:test
+
+#run container with docker run
 docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
 
-#docker compose
+#run with docker compose
 #up and run in background
 docker compose up -d
 
