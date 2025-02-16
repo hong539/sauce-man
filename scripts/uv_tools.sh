@@ -27,3 +27,5 @@ uv python list
 #Importing dependencies
 #docs: https://docs.astral.sh/uv/concepts/projects/dependencies/#importing-dependencies
 uv add -r requirements.txt
+
+uv add fastapi --extra standard
