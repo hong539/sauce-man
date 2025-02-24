@@ -17,6 +17,8 @@ ENV DB_PORT port
 ENV DB_NAME test_db
 
 #Setup sauce_man
+RUN mkdir -p /app/config
+COPY .env /app/config
 COPY requirements.txt /app
 COPY /src /app
 RUN pip install -r requirements.txt
