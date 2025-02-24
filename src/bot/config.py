@@ -1,12 +1,4 @@
-import os
-from dotenv import load_dotenv
+from core.settings import settings
 
-load_dotenv()
-
-TOKEN = os.getenv("TOKEN")
-GUILD_ID = int(os.getenv("GUILD_ID", "0"))
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
-DB_NAME = os.getenv("DB_NAME")
+TOKEN = settings.token
+GUILD_ID = settings.guild_id
