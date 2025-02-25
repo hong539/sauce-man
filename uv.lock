@@ -781,6 +781,20 @@ wheels = [
 ]
 
 [[package]]
+name = "pydantic-settings"
+version = "2.8.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pydantic", version = "2.7.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.13'" },
+    { name = "pydantic", version = "2.9.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.13'" },
+    { name = "python-dotenv" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ca/a2/ad2511ede77bb424f3939e5148a56d968cdc6b1462620d24b2a1f4ab65b4/pydantic_settings-2.8.0.tar.gz", hash = "sha256:88e2ca28f6e68ea102c99c3c401d6c9078e68a5df600e97b43891c34e089500a", size = 83347 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c1/a9/3b9642025174bbe67e900785fb99c9bfe91ea584b0b7126ff99945c24a0e/pydantic_settings-2.8.0-py3-none-any.whl", hash = "sha256:c782c7dc3fb40e97b238e713c25d26f64314aece2e91abcff592fcac15f71820", size = 30746 },
+]
+
+[[package]]
 name = "pygments"
 version = "2.19.1"
 source = { registry = "https://pypi.org/simple" }
@@ -891,6 +905,7 @@ dependencies = [
     { name = "multidict" },
     { name = "numpy" },
     { name = "pandas" },
+    { name = "pydantic-settings" },
     { name = "python-dateutil" },
     { name = "pytz" },
     { name = "pyyaml" },
@@ -916,6 +931,7 @@ requires-dist = [
     { name = "multidict", specifier = "==6.0.4" },
     { name = "numpy", specifier = "==1.26.0" },
     { name = "pandas", specifier = "==2.1.1" },
+    { name = "pydantic-settings", specifier = ">=2.8.0" },
     { name = "python-dateutil", specifier = "==2.8.2" },
     { name = "pytz", specifier = "==2023.3.post1" },
     { name = "pyyaml", specifier = "==6.0.1" },
