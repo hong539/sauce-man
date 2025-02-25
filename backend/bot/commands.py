@@ -1,15 +1,12 @@
-from .client import MyClient
 from discord import app_commands
 from typing import Optional
 import discord
 import datetime
 import pandas as pd
 from sqlalchemy import create_engine
-from .config import DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
+from config import DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
 
-client = None
-
-def set_client(c: MyClient):
+def set_client(c):
     """這個函式讓 main.py 設定 client 物件"""
     global client
     client = c

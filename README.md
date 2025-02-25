@@ -13,14 +13,14 @@
 * test discord.py
 * find a better and safe way to set env
 * implement event handling
-    * Discord Twitter Link Handler
-        ✅ Detect Twitter links in messages
-        ✅ Extract Tweet ID from the URL
-        ✅ Fetch tweet data using fxtwitter API (fallback to vxtwitter API)
-        ✅ Generate a Discord Embed containing tweet details
-        ✅ Send tweet media (images/videos) separately
-        ✅ Provide a backup link if API calls fail
-        ✅ Suppress Discord’s default Twitter preview    
+    * Discord Twitter Link Handler<br>
+        ✅ Detect Twitter links in messages<br>
+        ✅ Extract Tweet ID from the URL<br>
+        ✅ Fetch tweet data using fxtwitter API (fallback to vxtwitter API)<br>
+        ✅ Generate a Discord Embed containing tweet details<br>
+        ✅ Send tweet media (images/videos) separately<br>
+        ✅ Provide a backup link if API calls fail<br>
+        ✅ Suppress Discord’s default Twitter preview<br>
 * implement channel app commands
     * ~~search history messages from a specific channel~~
     * dump history messages from a specific channel

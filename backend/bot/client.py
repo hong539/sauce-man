@@ -1,6 +1,6 @@
 import discord
 from discord import app_commands
-from .config import TOKEN, GUILD_ID
+from config import TOKEN, GUILD_ID
 
 class MyClient(discord.Client):
     
@@ -22,9 +22,11 @@ class MyClient(discord.Client):
     # Instead of specifying a guild to every command, we copy over our global commands instead.
     # By doing so, we don't have to wait up to an hour until they are shown to the end-user.
     async def setup_hook(self):
+                
         # This copies the global commands over to your guild.
         self.tree.copy_global_to(guild=self.guild)
         await self.tree.sync(guild=self.guild)
+        print("Slash 指令已同步！")
     
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
@@ -33,4 +35,4 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         print(f'Message from {message.channel}:{message.author}: {message.content}')
 
-# client = MyClient()
+client = MyClient()

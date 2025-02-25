@@ -1,0 +1,20 @@
+#1st stage
+#pull official base image
+FROM docker.io/python:3.10.14-slim-bookworm
+
+#set the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions
+WORKDIR /app
+
+#set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+#Setup sauce_man
+RUN mkdir -p /app/config
+COPY .env /app/config
+COPY requirements.txt /app
+COPY /src /app
+RUN pip install -r requirements.txt
+
+#Run sauce_man
+CMD ["python3", "main.py"]

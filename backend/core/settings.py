@@ -8,8 +8,9 @@ class Settings(BaseSettings):
     guild_id: int
 
     # FastAPI 設定
-    api_host: str = "0.0.0.0"
-    api_port: int = 8000
+    api_host: str
+    api_port: int
+    api_url: str
 
     # 資料庫設定
     db_user: str

@@ -1,7 +1,7 @@
 [project]
 name = "sauce-man"
 version = "0.1.0"
-description = """* sauce_man is a discord bot to make discord app bertter to:
+description = """* sauce-man is a discord bot to make discord app bertter to:
     * advanced search features for who want make some records or fix the broken preview from some outside URLs.
     * Fix Links Previews."""
 readme = "README.md"
@@ -30,3 +30,6 @@ dependencies = [
     "tzdata==2023.3",
     "yarl==1.9.2",
 ]
+
+[tool.uv.workspace]
+members = ["backend/bot", "backend/core", "backend/api", "backend"]

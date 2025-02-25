@@ -28,4 +28,17 @@ uv python list
 #docs: https://docs.astral.sh/uv/concepts/projects/dependencies/#importing-dependencies
 uv add -r requirements.txt
 
+# core
+uv add pydantic
+uv add pydantic-settings
+uv add sqlalchemy
+
+# bot
+uv add discord-py
+uv add pydantic
+uv add pydantic-settings
+
+# backend/api
 uv add fastapi --extra standard
+uv add pydantic
+uv add pydantic-settings
