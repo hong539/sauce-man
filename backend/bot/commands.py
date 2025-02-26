@@ -37,8 +37,8 @@ def register_context_menus():
     if client is None or not hasattr(client, "tree"):
         raise ValueError("client 尚未設定或 `client.tree` 尚未初始化！")
 
-    client.tree.add_command(app_commands.ContextMenu(name="Show Join Date", callback=show_join_date))
-    client.tree.add_command(app_commands.ContextMenu(name="Report to Moderators", callback=report_message))
+    # client.tree.add_command(app_commands.ContextMenu(name="Show Join Date", callback=show_join_date))
+    # client.tree.add_command(app_commands.ContextMenu(name="Report to Moderators", callback=report_message))
 
     print("Context Menu 指令已成功註冊！")
 
