@@ -8,10 +8,13 @@
 
 ### working
 
+* refactoring
+    * move src/** to backend/**
 * update Dockerfile
 * ~~migrage from pyenv+poetry to uv~~
 * test discord.py
-* find a better and safe way to set env
+* ~~find a better and safe way to set env~~
+    * pydantic-settings
 * implement event handling
     * Discord Twitter Link Handler<br>
         ✅ Detect Twitter links in messages<br>

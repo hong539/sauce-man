@@ -1,7 +1,11 @@
 [project]
 name = "core"
 version = "0.1.0"
-description = "Add your description here"
+description = "Core library for sauce-man"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "pandas>=2.2.3",
+    "pydantic-settings>=2.8.0",
+    "sqlalchemy>=2.0.38",
+]
