@@ -1,7 +1,7 @@
 import discord
 from discord import app_commands
-from config import TOKEN, GUILD_ID
-import commands
+from bot.config import TOKEN, GUILD_ID
+import bot.commands
 
 
 class MyClient(discord.Client):
@@ -26,10 +26,10 @@ class MyClient(discord.Client):
     # By doing so, we don't have to wait up to an hour until they are shown to the end-user.
     async def setup_hook(self):
         if self.load_commands:
-            commands.set_client(self)  # 設定 client
-            commands.register_commands()  # 註冊 Slash 指令
-            commands.register_context_menus()  # 註冊 Context Menu 指令
-            await commands.sync_commands()  # 同步指令到 Discord
+            bot.commands.set_client(self)  # 設定 client
+            bot.commands.register_commands()  # 註冊 Slash 指令
+            bot.commands.register_context_menus()  # 註冊 Context Menu 指令
+            await bot.commands.sync_commands()  # 同步指令到 Discord
             print("所有 Slash 指令和 Context Menu 指令已載入！")
 
     async def on_ready(self):

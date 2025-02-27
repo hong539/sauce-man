@@ -1,4 +1,4 @@
-from client import MyClient
+from bot.client import MyClient
 
 
 def main():

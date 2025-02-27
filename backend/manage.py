@@ -4,50 +4,28 @@ import sys
 import argparse
 import subprocess
 
-# 設定 BASE_DIR 為 backend/
-# 確保 backend 是 PYTHONPATH 的第一個目錄
+# 設定 backend 為 PYTHONPATH
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, BASE_DIR)
-
-# 設定環境變數
-CORE_ENV_FILE = os.path.join(BASE_DIR, "core", ".env")
-BACKEND_ENV_FILE = os.path.join(BASE_DIR, ".env")
-
-if os.path.exists(CORE_ENV_FILE):
-    ENV_FILE = CORE_ENV_FILE
-elif os.path.exists(BACKEND_ENV_FILE):
-    ENV_FILE = BACKEND_ENV_FILE
-else:
-    ENV_FILE = None
-    print("[警告] 找不到 `.env` 檔案，將使用系統環境變數。")
+sys.path.insert(0, os.path.join(BASE_DIR, "core"))
 
 def run_api(host: str, port: int, use_uv: bool):
     """運行 FastAPI 應用"""
     if use_uv:
-        # 使用 uv 執行 FastAPI，並確保 cwd 在 backend
-        cmd = ["uv", "run", "--python=python3.11"]
-        if ENV_FILE:
-            cmd += ["--env-file", ENV_FILE]
-        cmd += ["main.py", host, str(port)]
+        cmd = ["uv", "run", "-m", "api.main"]
     else:
-        # 部署環境使用 fastapi run
-        cmd = ["fastapi", "run", "--host", host, "--port", str(port)]
-
-    subprocess.run(cmd, cwd=os.path.join(BASE_DIR, "api"))  # 強制工作目錄為 backend/api/
+        cmd = ["uvicorn", "api.main:app", "--host", host, "--port", str(port), "--reload"]
+    
+    subprocess.run(cmd, cwd=BASE_DIR)
 
 def run_bot(use_uv: bool):
     """運行 Discord Bot"""
     if use_uv:
-        # 使用 uv 執行 Discord Bot
-        cmd = ["uv", "run", "--python=python3.11"]
-        if ENV_FILE:
-            cmd += ["--env-file", ENV_FILE]
-        cmd += ["main.py"]
+        cmd = ["uv", "run", "-m", "bot.main"]
     else:
-        # 部署環境使用 discord-bot run
-        cmd = ["discord-bot", "run"]
-
-    subprocess.run(cmd, cwd=os.path.join(BASE_DIR, "bot"))  # 強制工作目錄為 backend/bot/
+        cmd = ["python3", "-m", "bot.main"]
+    
+    subprocess.run(cmd, cwd=BASE_DIR)
 
 def main():
     parser = argparse.ArgumentParser(description="Manage the application")

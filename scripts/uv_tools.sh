@@ -24,6 +24,12 @@ uv python pin 3.10
 #Viewing Python installations
 uv python list
 
+uv python uninstall 3.11
+
+#cache
+uv cache dir
+uv cache clean
+
 #Importing dependencies
 #docs: https://docs.astral.sh/uv/concepts/projects/dependencies/#importing-dependencies
 uv add -r requirements.txt

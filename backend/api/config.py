@@ -1,4 +1,4 @@
-from pydantic import BaseSettings
+from core.settings import settings
 
 
 class Settings(BaseSettings):
