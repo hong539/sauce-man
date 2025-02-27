@@ -1,13 +1,13 @@
-# Python program to explain os.getenv() method 
-	
-# importing os module 
-import os 
+# Python program to explain os.getenv() method
 
-# Get the value of 'home' 
-# environment variable 
-key = 'home'
-value = os.getenv(key) 
+# importing os module
+import os
 
-# Print the value of 'home' 
-# environment variable 
-print("Value of 'home' environment variable :", value) 
+# Get the value of 'home'
+# environment variable
+key = "home"
+value = os.getenv(key)
+
+# Print the value of 'home'
+# environment variable
+print("Value of 'home' environment variable :", value)

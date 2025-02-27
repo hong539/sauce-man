@@ -9,7 +9,8 @@
 from discord.ext import commands
 
 # 建立Discord BOT客戶端
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix="!")
+
 
 @bot.hybrid_command()
 async def test(ctx):

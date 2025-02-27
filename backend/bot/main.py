@@ -1,9 +1,10 @@
 from client import MyClient
 
-def main():
 
+def main():
     client = MyClient(load_commands=True)
-    client.run(token= client.token)
+    client.run(token=client.token)
+
 
 if __name__ == "__main__":
     main()

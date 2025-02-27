@@ -8,10 +8,12 @@ from api.models import Message
 
 router = APIRouter()
 
+
 class MessageData(BaseModel):
     content: str
     author: str
     timestamp: str
+
 
 class MessageDumpRequest(BaseModel):
     channel: str
@@ -19,6 +21,7 @@ class MessageDumpRequest(BaseModel):
     before_date: Optional[str] = None
     after_date: Optional[str] = None
     messages: List[MessageData]
+
 
 @router.post("/save_messages")
 async def save_messages(request: MessageDumpRequest, db: Session = Depends(get_db)):
@@ -29,7 +32,7 @@ async def save_messages(request: MessageDumpRequest, db: Session = Depends(get_d
                 channel=request.channel,
                 member=request.member,
                 content=msg.content,
-                timestamp=datetime.datetime.fromisoformat(msg.timestamp)
+                timestamp=datetime.datetime.fromisoformat(msg.timestamp),
             )
             for msg in request.messages
         ]

@@ -5,7 +5,7 @@ cd "$(dirname "$0")/../backend"
 export PYTHONPATH=$(pwd)
 
 # dev with uv
-uv run --env-file ../.env bot/main.py
+uv run --env-file .env bot/main.py
 
 # deploy with docker/podman container 
 # docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test

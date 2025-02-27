@@ -3,22 +3,22 @@ from discord import app_commands
 from config import TOKEN, GUILD_ID
 import commands
 
+
 class MyClient(discord.Client):
-    
     def __init__(self, load_commands: bool = True) -> None:
         # Just default intents and a `discord.Client` instance
         # We don't need a `commands.Bot` instance because we are not
         # creating text-based commands.
         intents = discord.Intents.default()
         intents.message_content = True
-        super().__init__(intents=intents)        
+        super().__init__(intents=intents)
         self.token = TOKEN
-        self.guild_id = GUILD_ID        
+        self.guild_id = GUILD_ID
         # We need an `discord.app_commands.CommandTree` instance
         # to register application commands (slash commands in this case)
         self.tree = app_commands.CommandTree(self)
         self.guild = discord.Object(id=int(self.guild_id))  # replace with your guild id
-        
+
         self.load_commands = load_commands
 
     # In this basic example, we just synchronize the app commands to one guild.
@@ -31,12 +31,13 @@ class MyClient(discord.Client):
             commands.register_context_menus()  # 註冊 Context Menu 指令
             await commands.sync_commands()  # 同步指令到 Discord
             print("所有 Slash 指令和 Context Menu 指令已載入！")
-    
+
     async def on_ready(self):
-        print(f'Logged in as {self.user} (ID: {self.user.id})')
-        print('------')
+        print(f"Logged in as {self.user} (ID: {self.user.id})")
+        print("------")
 
     async def on_message(self, message):
-        print(f'Message from {message.channel}:{message.author}: {message.content}')
+        print(f"Message from {message.channel}:{message.author}: {message.content}")
+
 
 client = MyClient()

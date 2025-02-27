@@ -6,16 +6,19 @@
 
 from time import time
 
+
 def measure_execution_time(func):
     t1 = time()
     func
     t2 = time()
     elapsed = t2 - t1
-    
-    return print('Elapsed time is %f seconds.' % elapsed)
+
+    return print("Elapsed time is %f seconds." % elapsed)
+
 
 def main():
     return print("I am the main func for testing and execution")
+
 
 if __name__ == "__main__":
     measure_execution_time(main)

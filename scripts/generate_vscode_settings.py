@@ -13,7 +13,7 @@ settings_content = {
     "python.linting.pylintEnabled": True,
     "python.testing.unittestEnabled": False,
     "python.testing.pytestEnabled": True,
-    "python.testing.pytestArgs": ["tests"]
+    "python.testing.pytestArgs": ["tests"],
 }
 
 # 確保 .vscode 目錄存在

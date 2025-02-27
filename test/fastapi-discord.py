@@ -11,9 +11,9 @@ client = discord.Client()
 #                                        ^ note not client.run()
 @app.on_event("startup")
 async def startup_event():
-  asyncio.create_task(client.start('token'))
+    asyncio.create_task(client.start("token"))
 
 
 @app.get("/")
 async def read_root():
-  return {"Hello": str(client.user)}
+    return {"Hello": str(client.user)}

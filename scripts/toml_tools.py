@@ -13,9 +13,7 @@ data["project"] = {
     "readme": tool_poetry.get("readme"),
     "license": {"text": tool_poetry.get("license")},
     "authors": tool_poetry.get("authors"),
-    "scripts": {
-        k: {"callable": v} for k, v in tool_poetry.get("scripts", {}).items()
-    }
+    "scripts": {k: {"callable": v} for k, v in tool_poetry.get("scripts", {}).items()},
 }
 
 # Save the updated pyproject.toml
