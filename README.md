@@ -1,12 +1,19 @@
-# sauce_man
+# sauce-man
 
-* sauce_man is a discord bot to make discord app bertter to:
-    * advanced search features for who want make some records or fix the broken preview from some outside URLs.
-    * Fix Links Previews.
+* sauce-man is services which includes:
+    * bot: a discord bot to make discord app bertter to:
+        * advanced search features for who want make some records or fix the broken preview from some outside URLs.
+        * Fix Links Previews.
+    * api: a FastAPI to interact with bot        
 
 ## To-do-list
 
 ### working
+
+* ~/sauce-man$ uv run backend/bot/main.py
+    * ModuleNotFoundError: No module named 'core'
+* ~/sauce-man$ python3 backend/bot/main.py
+    * ModuleNotFoundError: No module named 'discord'
 
 * refactoring
     * move src/** to backend/**
@@ -57,10 +64,10 @@ uv run --python=python3.10 backend/manage.py runapi 0.0.0.0 8000 --uv
 bash scripts/uv_tools.sh
 
 #build docker container image
-docker build . -t docker.io/focal1119/sauce_man:test
+docker build . -t docker.io/focal1119/sauce-man:test
 
 #run container with docker run
-docker run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
+docker run -d --env-file=backend/core/.env --name sauce-man docker.io/focal1119/sauce-man-bot:2025-02-27-15-57
 
 #run with docker compose
 #up and run in background
@@ -70,9 +77,9 @@ docker compose up -d
 docker compose down
 
 #podman container build/run
-podman build . -t docker.io/focal1119/sauce_man:test
-podman build . --no-cache -t docker.io/focal1119/sauce_man:test
-podman run -d --env-file=.env --name sauce_man docker.io/focal1119/sauce_man:test
+podman build . -t docker.io/focal1119/sauce-man:test
+podman build . --no-cache -t docker.io/focal1119/sauce-man:test
+podman run -d --env-file=.env --name sauce-man docker.io/focal1119/sauce-man:test
 ```
 
 ## misc

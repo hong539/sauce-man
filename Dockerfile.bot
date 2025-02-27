@@ -1,20 +1,42 @@
 #1st stage
-#pull official base image
-FROM docker.io/python:3.10.14-slim-bookworm
+# First, build the application in the `/app` directory
+FROM ghcr.io/astral-sh/uv:bookworm-slim AS builder
+ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
+
+# Configure the Python directory so it is consistent
+ENV UV_PYTHON_INSTALL_DIR /python
+
+# Only use the managed Python version
+ENV UV_PYTHON_PREFERENCE=only-managed
+
+# Install Python before the project for caching
+RUN uv python install 3.10
+
+WORKDIR /app
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=bind,source=uv.lock,target=uv.lock \
+    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
+    uv sync --frozen --no-install-project --no-dev
+ADD . /app
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --frozen --no-dev
+
+#2nd stage
+FROM docker.io/python:3.10.16-slim-bookworm
+
+# Copy the Python version
+COPY --from=builder --chown=python:python /python /python
 
 #set the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions
 WORKDIR /app
+
+# Copy the application from the builder
+COPY --from=builder --chown=app:app /app /app
 
 #set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-#Setup sauce_man
-RUN mkdir -p /app/config
-COPY .env /app/config
-COPY requirements.txt /app
-COPY /src /app
-RUN pip install -r requirements.txt
-
 #Run sauce_man
-CMD ["python3", "main.py"]
+CMD ["python3", "bot/main.py"]

@@ -1,3 +1,5 @@
 /src/example.yaml
 /src/my_self.yaml
 /src/test/
+.venv
+.env
