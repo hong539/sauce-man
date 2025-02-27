@@ -30,6 +30,11 @@ uv python uninstall 3.11
 uv cache dir
 uv cache clean
 
+#Exporting dependencies
+# uv pip freeze > requirements.txt
+# uv pip freeze --project pyproject.toml
+uv pip compile pyproject.toml > requirements.txt
+
 #Importing dependencies
 #docs: https://docs.astral.sh/uv/concepts/projects/dependencies/#importing-dependencies
 uv add -r requirements.txt

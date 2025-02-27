@@ -4,9 +4,9 @@ services:
     sauce-man-bot:
         hostname: sauce-man-bot
         container_name: sauce-man-bot
-        image: docker.io/focal1119/sauce-man-bot:2025-02-27-17-10
+        image: docker.io/focal1119/sauce-man-bot:2025-02-27-22-04
         restart: always
-        entrypoint: tail -f /dev/null
+        # entrypoint: tail -f /dev/null
         env_file:
-            - backend/core/.env
+            - backend/bot/.env
         # network_mode: "host"

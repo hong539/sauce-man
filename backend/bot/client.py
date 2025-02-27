@@ -28,7 +28,7 @@ class MyClient(discord.Client):
         if self.load_commands:
             commands.set_client(self)  # 設定 client
             commands.register_commands()  # 註冊 Slash 指令
-            commands.register_context_menus()  # 註冊 Context Menu 指令
+            # commands.register_context_menus()  # 註冊 Context Menu 指令
             await commands.sync_commands()  # 同步指令到 Discord
             print("所有 Slash 指令和 Context Menu 指令已載入！")
 
@@ -38,6 +38,3 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
         print(f"Message from {message.channel}:{message.author}: {message.content}")
-
-
-client = MyClient()

@@ -7,9 +7,7 @@ description = """* bot is a discord bot to make discord app bertter to:
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "core",
     "discord-py>=2.5.0",
+    "pandas>=2.2.3",
+    "pydantic-settings>=2.8.1",
 ]
-
-[tool.uv.sources]
-core = { workspace = true }

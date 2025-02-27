@@ -10,13 +10,13 @@
 
 ### working
 
-* ~/sauce-man$ uv run backend/bot/main.py
-    * ModuleNotFoundError: No module named 'core'
-* ~/sauce-man$ python3 backend/bot/main.py
-    * ModuleNotFoundError: No module named 'discord'
-
 * refactoring
-    * move src/** to backend/**
+    * ~~move src/** to backend/**~~
+    * ~~merge backend/core/settings.py to backend/bot/config.py~~
+    ~~* ~/sauce-man$ uv run backend/bot/main.py~~
+        ~~* ModuleNotFoundError: No module named 'core'~~
+    ~~* ~/sauce-man$ python3 backend/bot/main.py~~
+        ~~* ModuleNotFoundError: No module named 'discord'~~
 * update Dockerfile
 * ~~migrage from pyenv+poetry to uv~~
 * test discord.py

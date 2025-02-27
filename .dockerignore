@@ -2,4 +2,4 @@
 /src/my_self.yaml
 /src/test/
 .venv
-.env
+**/.env
