@@ -2,6 +2,7 @@ import discord
 from discord import app_commands
 from config import TOKEN, GUILD_ID
 import commands
+from url_regex import regexs_dict
 
 
 class MyClient(discord.Client):
@@ -37,4 +38,12 @@ class MyClient(discord.Client):
         print("------")
 
     async def on_message(self, message):
-        print(f"Message from {message.channel}:{message.author}: {message.content}")
+        if message.author.id == self.user.id:
+            return  # 忽略機器人訊息
+        else:
+            content = message.content
+            for pattern, handler in regexs_dict.items():
+                match = pattern.search(content)
+                if match:
+                    await handler(match, message)
+                    break  # 匹配到就執行對應處理函數        

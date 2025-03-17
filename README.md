@@ -10,6 +10,12 @@
 
 ### working
 
+* uv
+```shell
+uv pip freeze --project pyproject.toml
+#vs
+uv pip compile pyproject.toml > requirements.txt
+```
 * refactoring
     * ~~move src/** to backend/**~~
     * ~~merge backend/core/settings.py to backend/bot/config.py~~
