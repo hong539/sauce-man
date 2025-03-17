@@ -10,11 +10,13 @@ async def handle_twitter_regex(match, message):
             async with session.get(api_url, timeout=2.5) as resp:
                 data = await resp.json()
 
-            if "tweet" or "x" not in data:
+            print(f"data type:{type(data)}")
+            if "tweet" not in data and "x" not in data:
                 await message.channel.send("Twitter 貼文解析失敗！")
                 return
 
             tweet_data = data["tweet"]
+            print(f"tweet_data type:{type(tweet_data)}")
             author_name = tweet_data.get("author", {}).get("name", "未知作者")
             author_screen_name = tweet_data.get("author", {}).get("screen_name", "")
             tweet_text = tweet_data.get("text", "無內文")
@@ -25,8 +27,12 @@ async def handle_twitter_regex(match, message):
             if "media" in tweet_data:
                 if "mosaic" in tweet_data["media"] and tweet_data["media"]["mosaic"]["type"] == "mosaic_photo":
                     image_url = tweet_data["media"]["mosaic"]["formats"]["jpeg"]
+                    print(f"check image_url in mosaic:{image_url}")
                 elif "photos" in tweet_data["media"]:
                     image_url = tweet_data["media"]["photos"][0]["url"] + "?name=large"
+                    print(f"check image_url in photos:{image_url}")
+                else:
+                    print(f"image_url parse error:{image_url}")
 
             # 建立 Embed 訊息
             embed = discord.Embed(title=author_name, url=tweet_url, description=tweet_text, color=0x1DA1F2)

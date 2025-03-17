@@ -1,5 +1,9 @@
 import re
 
+re.compile(r"https://www.pixiv.net/artworks/(\d+)")
+re.compile(r"https://twitter.com/[A-Za-z0-9_]{1,15}/status/(\d+)")
+re.compile(r"https://x\.com/[A-Za-z0-9_]{1,15}/status/([0-9]+)")
+
 # 定義 Twitter 連結的正則表達式
 twitter_regex = re.compile(r"https://x\.com/[A-Za-z0-9_]{1,15}/status/([0-9]+)")
 

@@ -4,7 +4,7 @@ services:
     sauce-man-bot:
         hostname: sauce-man-bot
         container_name: sauce-man-bot
-        image: docker.io/focal1119/sauce-man-bot:2025-03-17-19-55
+        image: docker.io/focal1119/sauce-man-bot:2025-03-17-21-49
         restart: always
         # entrypoint: tail -f /dev/null
         env_file:
