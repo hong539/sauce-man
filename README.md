@@ -1,10 +1,11 @@
 # sauce-man
 
 * sauce-man is services which includes:
-    * bot: a discord bot to make discord app bertter to:
-        * advanced search features for who want make some records or fix the broken preview from some outside URLs.
-        * Fix Links Previews.
-    * api: a FastAPI to interact with bot        
+    * bot: a discord bot to make discord app bertter to:        
+        * Fix Links Previews
+        * reverse image search
+    * api: a FastAPI to interact with bot
+    * cms: matain bots via api
 
 ## To-do-list
 
@@ -90,6 +91,12 @@ podman run -d --env-file=.env --name sauce-man docker.io/focal1119/sauce-man:tes
 
 ## misc
 
+### Reference implementation
+
+* [ermiana](https://github.com/canaria3406/ermiana/tree/master)
+    * A Discord bot that fixes sites with broken preview by providing more detailed images and webpage content. Supports multiple popular sites in Taiwan, East Asia. 
+* [bckbot](https://github.com/hker9527/bckbot)
+    * A discord bot powered by discord.js 
 * [how-do-i-apply-environment-variables-to-python-interactive](https://stackoverflow.com/questions/73858371/how-do-i-apply-environment-variables-to-python-interactive)
 * [pprint](https://docs.python.org/3.11/library/pprint.html)
 * [os.environ](https://docs.python.org/3/library/os.html#os.environ)
