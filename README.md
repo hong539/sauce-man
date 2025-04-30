@@ -4,57 +4,13 @@
     * bot: a discord bot to make discord app bertter to:        
         * Fix Links Previews
         * reverse image search
+        * query user messages
+        and also:
+        * prometheus metrics
+        * opentelemetry instrumentation
     * api: a FastAPI to interact with bot
-    * cms: matain bots via api
-
-## To-do-list
-
-### working
-
-* uv
-```shell
-uv pip freeze --project pyproject.toml
-#vs
-uv pip compile pyproject.toml > requirements.txt
-```
-* refactoring
-    * ~~move src/** to backend/**~~
-    * ~~merge backend/core/settings.py to backend/bot/config.py~~
-    ~~* ~/sauce-man$ uv run backend/bot/main.py~~
-        ~~* ModuleNotFoundError: No module named 'core'~~
-    ~~* ~/sauce-man$ python3 backend/bot/main.py~~
-        ~~* ModuleNotFoundError: No module named 'discord'~~
-* update Dockerfile
-* ~~migrage from pyenv+poetry to uv~~
-* test discord.py
-* ~~find a better and safe way to set env~~
-    * pydantic-settings
-* implement event handling
-    * Discord Twitter Link Handler<br>
-        ✅ Detect Twitter links in messages<br>
-        ✅ Extract Tweet ID from the URL<br>
-        ✅ Fetch tweet data using fxtwitter API (fallback to vxtwitter API)<br>
-        ✅ Generate a Discord Embed containing tweet details<br>
-        ✅ Send tweet media (images/videos) separately<br>
-        ✅ Provide a backup link if API calls fail<br>
-        ✅ Suppress Discord’s default Twitter preview<br>
-* implement channel app commands
-    * ~~search history messages from a specific channel~~
-    * dump history messages from a specific channel
-        * calculate the range <= 100 for iterator to append all history to the stored list
-
-### pending
-
-* Container part
-    * ~~prepare Dockerfile~~
-    * ~~Run with podman~~
-    * docekr network DNS resovle error
-        * ERROR: failed to solve: docker.io/python:3.11.4-slim-bullseye: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.11.4-slim-bullseye": EOF
-
-### done
-
-* ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
-* ~~postgresql db init~~
+    * bot management dashboard: matain bots via api
+    * mcp-server: MCP is an open protocol that standardizes how applications provide context to LLMs.
 
 ## quick-start
 
@@ -82,17 +38,14 @@ docker compose up -d
 
 #down
 docker compose down
-
-#podman container build/run
-podman build . -t docker.io/focal1119/sauce-man:test
-podman build . --no-cache -t docker.io/focal1119/sauce-man:test
-podman run -d --env-file=.env --name sauce-man docker.io/focal1119/sauce-man:test
 ```
 
 ## misc
 
 ### Reference implementation
 
+* [github.com/practical-tutorials/project-based-learning?tab=readme-ov-file#python](https://github.com/practical-tutorials/project-based-learning?tab=readme-ov-file#python)
+* [modelcontextprotocol.io/introduction](https://modelcontextprotocol.io/introduction)
 * [ermiana](https://github.com/canaria3406/ermiana/tree/master)
     * A Discord bot that fixes sites with broken preview by providing more detailed images and webpage content. Supports multiple popular sites in Taiwan, East Asia. 
 * [bckbot](https://github.com/hker9527/bckbot)
