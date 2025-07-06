@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
     sauce-man-bot:
         hostname: sauce-man-bot
@@ -8,5 +6,5 @@ services:
         restart: always
         # entrypoint: tail -f /dev/null
         env_file:
-            - backend/bot/.env
+            - bot/.env
         # network_mode: "host"
