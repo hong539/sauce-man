@@ -11,6 +11,7 @@ uv pip freeze --project pyproject.toml
 uv pip compile pyproject.toml > requirements.txt
 ```
 
+* Add 3rd party or implement APIs to fix social media broken prview.
 * Add Prometheus metrics
 * refactoring
     * ~~move src/** to backend/**~~
