@@ -1,9 +1,7 @@
 [project]
 name = "bot"
 version = "0.1.0"
-description = """* bot is a discord bot to make discord app bertter to:
-    * advanced search features for who want make some records or fix the broken preview from some outside URLs.
-    * Fix Links Previews."""
+description = "A discord bot to fix broken preview such as twitter/x.com...etc"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -11,6 +9,10 @@ dependencies = [
     "pandas>=2.2.3",
     "pydantic-settings>=2.8.1",
 ]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["client*", "config*", "commands*", "url_regex*"]
