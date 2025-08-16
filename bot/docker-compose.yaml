@@ -6,5 +6,5 @@ services:
         restart: always
         # entrypoint: tail -f /dev/null
         env_file:
-            - bot/.env
+            - ./.env
         # network_mode: "host"
