@@ -41,4 +41,8 @@ uv run main.py
 
 ### others
 
-* [github.com/dylanpdx/BetterTwitFix/tree/main](https://github.com/dylanpdx/BetterTwitFix/tree/main)
+* pydantic
+    * [docs.pydantic.dev/2.10/errors/validation_errors/#missing](https://docs.pydantic.dev/2.10/errors/validation_errors/#missing)
+* 3rd-party for Fix twitter/x.com broken preview metadata
+    * [github.com/dylanpdx/BetterTwitFix](https://github.com/dylanpdx/BetterTwitFix)
+    * [github.com/FxEmbed/FxEmbed](https://github.com/FxEmbed/FxEmbed)

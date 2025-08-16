@@ -1,7 +1,7 @@
 [project]
 name = "bot"
 version = "0.1.0"
-description = "A discord bot to fix broken preview such as twitter/x.com...etc"
+description = "A discord bot to fix broken preview such as twitter/x.com...etc with 3rd-party APIs"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
