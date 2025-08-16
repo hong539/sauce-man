@@ -7,8 +7,11 @@
 * uv
 ```shell
 uv pip freeze --project pyproject.toml
-#vs
+#output a requirements.txt
 uv pip compile pyproject.toml > requirements.txt
+
+#dev with uv
+uv run main.py
 ```
 
 * Add 3rd party or implement APIs to fix social media broken prview.
@@ -52,3 +55,7 @@ uv pip compile pyproject.toml > requirements.txt
 
 * ~~separate function load_config from class or not? (Hint: Like django settings.py)~~
 * ~~postgresql db init~~
+
+### others
+
+* [github.com/dylanpdx/BetterTwitFix/tree/main](https://github.com/dylanpdx/BetterTwitFix/tree/main)

@@ -1,9 +1,15 @@
 import os
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# need to right path for .env file
 # 確保 `.env` 使用絕對路徑，避免找不到
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ENV_PATH = os.path.join(BASE_DIR, ".env")
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# ENV_PATH = os.path.join(BASE_DIR, ".env")
+
+# 專案根：.../bot
+ROOT_DIR = Path(__file__).resolve().parents[1]
+ENV_PATH = ROOT_DIR / ".env"
 
 class Settings(BaseSettings):
     """管理環境變數的設定類"""

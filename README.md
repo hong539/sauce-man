@@ -15,13 +15,14 @@
 ## quick-start
 
 ```shell
-#backend
-#discord-bot
-uv run backend/manage.py runbot --uv
-# uv run --python=python3.10 backend/manage.py runbot --uv
+#bot
+cd bot/
+uv run main.py
 
-#FastAPI
-uv run --python=python3.10 backend/manage.py runapi 0.0.0.0 8000 --uv
+#api
+cd api/
+# need to update
+# uv run --python=python3.10 backend/manage.py runapi 0.0.0.0 8000 --uv
 
 #setting up 
 bash scripts/uv_tools.sh
