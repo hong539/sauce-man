@@ -6,6 +6,8 @@
 
 ## To-do-list
 
+* Discord Twitter Link Handler with mutli 3rd-pary APIs
+
 ### working
 
 * uv
@@ -39,6 +41,16 @@ uv run main.py
     * dump history messages from a specific channel
         * calculate the range <= 100 for iterator to append all history to the stored list
 
+### Reference
+
+* discord.py
+    * [github.com/Rapptz/discord.py](https://github.com/Rapptz/discord.py)
+    * [discordpy.readthedocs.io/en/stable/faq.html#](https://discordpy.readthedocs.io/en/stable/faq.html#)
+    * API Reference
+        * [discordpy.readthedocs.io/en/stable/api.html?highlight=video#embed](https://discordpy.readthedocs.io/en/stable/api.html?highlight=video#embed)
+* [github.com/canaria3406/ermiana/blob/master/src/regex/handleTwitterRegexV2.js](https://github.com/canaria3406/ermiana/blob/master/src/regex/handleTwitterRegexV2.js)
+* [github.com/FxEmbed/FxEmbed](https://github.com/FxEmbed/FxEmbed)
+
 ### others
 
 * pydantic
@@ -46,3 +58,5 @@ uv run main.py
 * 3rd-party for Fix twitter/x.com broken preview metadata
     * [github.com/dylanpdx/BetterTwitFix](https://github.com/dylanpdx/BetterTwitFix)
     * [github.com/FxEmbed/FxEmbed](https://github.com/FxEmbed/FxEmbed)
+* Rust
+    * [github.com/serenity-rs/serenity](https://github.com/serenity-rs/serenity)

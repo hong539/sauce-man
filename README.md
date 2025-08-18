@@ -71,6 +71,11 @@ docker compose down
 * [events](https://discordpy.readthedocs.io/en/latest/api.html#event-reference)
     * [coroutine](https://docs.python.org/3/library/asyncio-task.html#coroutine)
         * [asyncio](https://docs.python.org/3.8/library/asyncio.html)
+* packaging
+    * [packaging.python.org/en/latest/tutorials/packaging-projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+    * [packaging.python.org/en/latest/guides/writing-pyproject-toml/#a-full-example](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#a-full-example)
+* setuptools
+    * [setuptools.pypa.io/en/latest/userguide/quickstart.html](https://setuptools.pypa.io/en/latest/userguide/quickstart.html)
 
 ## Important!!!
 
