@@ -58,5 +58,6 @@ uv run main.py
 * 3rd-party for Fix twitter/x.com broken preview metadata
     * [github.com/dylanpdx/BetterTwitFix](https://github.com/dylanpdx/BetterTwitFix)
     * [github.com/FxEmbed/FxEmbed](https://github.com/FxEmbed/FxEmbed)
+    * [github.com/Wikidepia/InstaFix](https://github.com/Wikidepia/InstaFix)
 * Rust
     * [github.com/serenity-rs/serenity](https://github.com/serenity-rs/serenity)
