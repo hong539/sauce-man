@@ -18,6 +18,22 @@ uv pip compile pyproject.toml > requirements.txt
 
 #dev with uv
 uv run main.py
+
+#setting up 
+bash scripts/uv_tools.sh
+
+#build docker container image
+docker build . -t docker.io/focal1119/sauce-man:test
+
+#run container with docker run
+docker run -d --env-file=backend/core/.env --name sauce-man docker.io/focal1119/sauce-man-bot:2025-02-27-15-57
+
+#run with docker compose
+#up and run in background
+docker compose up -d
+
+#down
+docker compose down
 ```
 
 * Add 3rd party or implement APIs to fix social media broken prview.
