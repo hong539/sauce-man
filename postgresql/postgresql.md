@@ -16,3 +16,9 @@ ALTER USER username WITH PASSWORD 'new_password';
 sudo vim /var/lib/postgres/data/pg_hba.conf
 sudo systemctl restart postgresql.service
 ```
+
+## MISC
+
+* bytebase
+    * World's most advanced database DevSecOps solution for Developer, Security, DBA and Platform Engineering teams. The GitHub/GitLab for database DevSecOps.
+    * [github.com/bytebase/bytebase](https://github.com/bytebase/bytebase)
